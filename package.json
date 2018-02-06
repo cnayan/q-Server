@@ -1,0 +1,33 @@
+{
+  "name": "ql-server",
+  "version": "0.0.1",
+  "description": "Gives API for MS SQL Server connectivity",
+  "author": "Nayan Choudhary",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@types/mssql": "^4.0.6",
+    "util": "^0.10.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "msnodesqlv8": "^0.4.6",
+    "mssql": "^4.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cnayan/ql-Server.git"
+  },
+  "keywords": [
+    "Query",
+    "Server",
+    "SQL",
+    "API"
+  ],
+  "bugs": {
+    "url": "https://github.com/cnayan/ql-Server/issues"
+  },
+  "homepage": "https://github.com/cnayan/ql-Server#readme"
+}
