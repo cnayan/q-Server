@@ -1,8 +1,8 @@
-# QL Server
+# Query Server
 Gives API for back-end server connectivity; MS SQL Server connectivity provided in this sample.
 
 # What is it?
-QL Server is a backend server which supports queries, like [GraphQL](http://graphql.org), but much simpler to understand, as the queries are JSON objects  with a specific syntax, which is documented below.
+Query Server is a backend server which supports queries, like [GraphQL](http://graphql.org), but much simpler to understand, as the queries are JSON objects  with a specific syntax, which is documented below.
 
 ![More Data Power to the Client](images/ql1.png)
 
