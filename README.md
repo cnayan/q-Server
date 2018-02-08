@@ -49,7 +49,7 @@ Example:
     },
 
     // Database name
-    db: 'PCDP',
+    db: 'ABCD',
 
     // Queries
     select: [{
@@ -230,7 +230,106 @@ If you observe, there is no 'greater than or equal to' and 'less than or equal t
 Specifically in this SQL connector, if all the rows asked to be returned from the table, it will be so. But if there are conditional clauses added, then 'distinct' entries will be returned.
 
 # Returned Data Format
-*TODO* - Will be updated by Feb 09, 2018.
+If run this set of queries,
+```javascript
+{
+    config: {
+        "server": "localhost",
+        "options": {
+            "instanceName": "SQLEXPRESS",
+            "trustedConnection": true,
+            "encrypt": false
+        }
+    },
+
+    db: 'ABCD',
+
+    select: [{
+          employeeTable: {
+              fields: ['employee_id', 'employee_name'],
+              limit: 2
+          }
+      }
+    ],
+
+    count: [{
+        employeeTable: {
+            filter: [{
+                'employee_dob_year': {
+                    lt: 1800
+                }
+            }],
+        }
+    }]
+};
+```
+
+then, this is how my result will look like:
+```json
+{
+  "return_code": 0,
+  "value": {
+    "select": [
+      {
+        "tableName": "[ABCD].[dbo].[employeeTable]",
+        "records": [
+          {
+            "employee_id": 1,
+            "employee_name": "Wolfgang Amadeus Mozart"
+          },
+          {
+            "employee_id": 2,
+            "employee_name": "Ludwig van Beethoven"
+          }
+        ]
+      }
+    ],
+    "count": [
+      {
+        "tableName": "[ABCD].[dbo].[employeeTable]",
+        "records": [
+          {
+            "count": 10
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+*return_code* being 0 is success of the operation. If it is negative, then an error has happened, and the absolute of return_code is the error number.
+
+
+Here is a sample result, when the data provider could not be connected, SQL Server in this case:
+```json
+{
+  "return_code": -200,
+  "text": "[Microsoft][SQL Server Native Client 11.0]SQL Server Network Interfaces: Error Locating Server/Instance Specified [xFFFFFFFF]. ",
+  "value": {
+    "code": -1,
+    "originalError": {
+      "sqlstate": "08001",
+      "code": -1
+    },
+    "name": "ConnectionError"
+  }
+}
+```
+
+To note:
+1. *return_code* is -ve.
+2. 200 is the error code.
+3. In *value* field, *originalError* contains information about the SQL Server error.
+4. In *value* field, *name* states the type of error.
+
+
+
+# Caveats
+There are a few, which hopefully will be fixed. Let me mention a few:
+1. *dbo* schema name is assumed and used in queries. It may be fixed by letting client state the schema. However, it may be applicable to SQL server, and not other data providers. So, it should be made optional.
+2. If the server connects to the data provider, it keep the channel open. In SQL Server case, this is how it has been implemented. It may not be valid issue for other data providers, which don't work on persistent channels.
+3. The server has not been designed to self-heal if there is connectivity problem, in the very first request. This behavior affects the client, which, when after correcting bad configuration, requests server, a connection to data again - the server doesn't respond in expected manner due to inner errors. This may be fixed later. For now, restart the server manually.
 
 
 # Bonus
