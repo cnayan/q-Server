@@ -230,7 +230,7 @@ If you observe, there is no 'greater than or equal to' and 'less than or equal t
 Specifically in this SQL connector, if all the rows asked to be returned from the table, it will be so. But if there are conditional clauses added, then 'distinct' entries will be returned.
 
 # Returned Data Format
-If run this set of queries,
+If I run this set of queries,
 ```javascript
 {
     config: {
