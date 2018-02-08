@@ -333,4 +333,4 @@ There are a few, which hopefully will be fixed. Let me mention a few:
 
 
 # Bonus
-If you are not comfortable writing JSON objects, head over to [Micro Query Language](https://github.com/cnayan/mql), which will build objects for you.
+If you are not comfortable writing JSON objects, head over to [Micro Query Builder](https://github.com/cnayan/mqb), which will build JSON query objects for you.
