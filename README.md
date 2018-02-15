@@ -195,7 +195,7 @@ Example:
        },
     ],
 
-    // Queries to count entries macthing the filters.
+    // Queries to count entries matching the filters.
     // Only 'filter' is acknowledged in the object, everything else is ignored.
     count: [{
         // Sample query to provide count of all entries in 'employeeTable'
