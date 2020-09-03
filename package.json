@@ -9,12 +9,12 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "@types/mssql": "^4.0.6",
-    "util": "^0.10.3",
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "msnodesqlv8": "^0.4.6",
-    "mssql": "^4.1.0"
+    "@types/mssql": "^6.0.4",
+    "util": "^0.12.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "msnodesqlv8": "^2.0.5",
+    "mssql": "^6.2.1"
   },
   "repository": {
     "type": "git",
