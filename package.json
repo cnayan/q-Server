@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cnayan/ql-Server.git"
+    "url": "git+https://github.com/cnayan/q-Server.git"
   },
   "keywords": [
     "Query",
@@ -27,7 +27,7 @@
     "API"
   ],
   "bugs": {
-    "url": "https://github.com/cnayan/ql-Server/issues"
+    "url": "https://github.com/cnayan/q-Server/issues"
   },
-  "homepage": "https://github.com/cnayan/ql-Server#readme"
+  "homepage": "https://github.com/cnayan/q-Server#readme"
 }
