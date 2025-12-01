@@ -11,7 +11,7 @@
   "dependencies": {
     "@types/mssql": "^9.1.8",
     "body-parser": "^2.2.0",
-    "express": "^5.1.0",
+    "express": "^5.2.0",
     "msnodesqlv8": "^5.1.1",
     "mssql": "^11.0.1",
     "util": "^0.12.5"
